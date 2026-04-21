@@ -9,17 +9,35 @@ class Esercizio {
     public static void main(String args[])
     {
         //Variabili del programma
-        String nome;
+        String input = "";
 
         //Creo l'oggetto in per l'input da tastiera
         Scanner in = new Scanner( System.in );
 
-        //Leggo l'input da tastiera
-        System.out.print("Inserisci il tuo nome: ");
-        nome = in.nextLine();
+        while(!(input.equalsIgnoreCase("x")))
+        {
+            input = in.nextLine();
+            Pila p1 = new Pila();
 
-        //Output del nome acquisito da tastiera
-        System.out.println("Ciao "+nome+"!");
+            for(int i = 0; i < input.length(); ++i)
+            {
+                p1.push(input.charAt(i));
+            }
+
+            String s1 = "";
+
+            while(p1.isEmpty())
+            {
+                s1 += p1.pop();
+            }
+
+            if(s1.equalsIgnoreCase(input))
+            {
+                System.out.println("La parola è palindroma");
+            }else{
+                System.out.println("La parola non è palindroma");
+            }
+        }
     }
 }
 
